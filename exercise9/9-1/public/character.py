@@ -77,7 +77,7 @@ class Character:
         ###  Attacks deal 10 dmg per level of the attacker plus            ###
         ### 10 * level + (공격자 level - 방어자 level)                       ###
         ######################################################################
-        return max(1, (self._lvl * 10) - other._lvl)  # self._lvl * 11로 되어있는데 설명에는 10이라서 내가 고침
+        return max(1, (self._lvl * 10) + (self._lvl - other._lvl))  # self._lvl * 11로 되어있는데 설명에는 10이라서 내가 고침
 
     def _take_physical_damage(self, amount):
         ################################

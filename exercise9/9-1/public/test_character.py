@@ -5,7 +5,9 @@
 # about testing strategies and use it as documentation.
 
 from unittest import TestCase
+
 from public.character import Character
+
 
 class TestCharacter(TestCase):
 

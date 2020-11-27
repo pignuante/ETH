@@ -23,8 +23,8 @@ class Knight(Character):
     def _get_caused_dmg(self, other):
         assert isinstance(other, Character)
         assert self is not other
-
-        return max(1, int(((self._lvl * 10) - other._lvl) * self.__reduce_atk))
+        damage = int(round((self._lvl*10+(self._lvl - other._lvl))*0.8))
+        return max(1, damage)
 
     def _take_physical_damage(self, amount):
         assert isinstance(amount, int)

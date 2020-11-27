@@ -34,7 +34,7 @@ class Mage(Character):
         assert isinstance(other, Character)
         assert self is not other
 
-        return max(1, int(((self._lvl * 10) - other._lvl) * self.__reduce_atk))
+        return max(1, int(((self._lvl * 10) + (self._lvl - other._lvl)) * self.__reduce_atk))
 
     def _take_physical_damage(self, amount):
         assert isinstance(amount, int)

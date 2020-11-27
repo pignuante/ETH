@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 from unittest import TestCase
+
 from public.script import Knight
 from public.script import Rogue
+
 
 class TestBattle(TestCase):
 
@@ -17,7 +19,7 @@ class TestBattle(TestCase):
         r = Rogue("Shades", 3)
         k.attack(r)
         actual = r.get_health()[0]
-        expected = 150 - round(0.8*(3*10+0))
+        expected = 150 - round(0.8 * (3 * 10 + 0))
         self.assertEqual(expected, actual)
 
     # This current test suite only contains very basic test cases. By now,
