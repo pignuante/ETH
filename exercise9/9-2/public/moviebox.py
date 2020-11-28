@@ -4,6 +4,9 @@
 # UML diagram. Do not change the class name or the method signatures
 # or the automated grading won't work.
 
+from public.movie import Movie
+
+
 class MovieBox:
     def __init__(self, title: str, movies: list):
         assert isinstance(title, str)

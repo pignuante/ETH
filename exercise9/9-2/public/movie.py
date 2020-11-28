@@ -9,13 +9,15 @@ class Movie:
         assert isinstance(title, str)
         assert len(title) > 0
         assert isinstance(actors, list)
-        assert isinstance(actors[0], str)
+        for actor in actors:
+            assert isinstance(actor, str)
         assert len(actors) > 1
         assert duration > 1
 
         self.__title = title
         self.__actors = actors
         self.__duration = duration
+        self.hash = hash((self.__title, *self.__actors, self.__duration))
 
     def __repr__(self) -> str:
         name = f'Movie("{self.__title}", {str(self.__actors)}, {self.__duration})'.replace(
