@@ -23,10 +23,18 @@ class Knight(Character):
     def _get_caused_dmg(self, other):
         assert isinstance(other, Character)
         assert self is not other
-        damage = int(round((self._lvl*10+(self._lvl - other._lvl))*0.8))
+        ###################################################################
+        ### 나이트 공격력 원래 공격의 80%                                  ###
+        ### 공격력 : round(((내 레벨 * 10) + (내 레벨 - 적 레벨)) * 0.8)   ###
+        ##################################################################
+        damage = int(round((self._lvl * 10 + (self._lvl - other._lvl)) * 0.8))
         return max(1, damage)
 
     def _take_physical_damage(self, amount):
+        ########################################
+        ### 나이트 방어력 +25%                 ###
+        ###     상대방이 준 데미지 * (1 - 0.25)  ###
+        ########################################
         assert isinstance(amount, int)
         assert amount >= 0
         self._health_cur = max(0, self._health_cur -

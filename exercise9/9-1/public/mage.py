@@ -21,19 +21,19 @@ class Mage(Character):
 
     def attack(self, other):
         assert isinstance(other, Character)
-
         assert self is not other
 
         if not self.is_alive():
             raise Warning("Character is dead!")
         # 나중에 여기를 _take_magical_damage 로 변경하면..
         # 그래서 미리 Overriding 해둠
+        # other._take_magical_damage(self._get_caused_dmg(other))
         other._take_physical_damage(self._get_caused_dmg(other))
 
     def _get_caused_dmg(self, other):
         assert isinstance(other, Character)
         assert self is not other
-
+        # 사실 이 데미지 공식도 따로 함수로 빼면 코드 보기가 편함
         return max(1, int(((self._lvl * 10) + (self._lvl - other._lvl)) * self.__reduce_atk))
 
     def _take_physical_damage(self, amount):

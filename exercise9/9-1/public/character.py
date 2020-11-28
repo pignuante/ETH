@@ -74,9 +74,12 @@ class Character:
         ### 공격력은 LEVEL * 11 - (상대방 레벨)                              ###
         ### Knight : 20% 감소된 데미지를 가짐 -> 상속으로 knight 에서 바꿔줘야함 ###
         ### Mage : 마법 데미지니 여기 말고..                                  ###
-        ###  Attacks deal 10 dmg per level of the attacker plus            ###
+        ###     Attacks deal 10 dmg per level of the attacker plus         ###
         ### 10 * level + (공격자 level - 방어자 level)                       ###
         ######################################################################
+        ### 공격력 : 레벨 * 10 + (내 레벨 - 적 레벨)
+        ### ex : 레벨 6 캐릭터가 , 레벨 4 케릭터 공격
+        ###     (6*10) + (6 - 4)    &    (4*10) + (4 - 6)
         return max(1, (self._lvl * 10) + (self._lvl - other._lvl))  # self._lvl * 11로 되어있는데 설명에는 10이라서 내가 고침
 
     def _take_physical_damage(self, amount):
