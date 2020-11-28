@@ -4,8 +4,6 @@
 # UML diagram. Do not change the class name or the method signatures
 # or the automated grading won't work.
 
-from public.movie import Movie
-
 class MovieBox:
 
     def __init__(self, title, movies):
@@ -21,6 +19,6 @@ class MovieBox:
         pass
 
     def get_movies(self):
-    	pass
+        pass
 
     # also implement the required special functions

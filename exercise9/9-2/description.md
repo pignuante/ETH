@@ -6,8 +6,10 @@ The goal is to develop an type hierarchy that can be used to manage a movie coll
 
 To make it easy to work with the two data structures, both have to implement `__eq__` and `__hash__`. They also have to implement `__repr__` and create a string that can be used to instantiate an equal instance. For example:
 
-    repr(Movie("T", ["A", "B"], 123)) == 'Movie("T", ["A", "B"], 123)'
-    repr(MovieBox("T2", [Movie("T", ["A", "B"], 123)]) == 'MovieBox("T2", [Movie("T", ["A", "B"], 123)])'
+```python
+repr(Movie("T", ["A", "B"], 123)) == 'Movie("T", ["A", "B"], 123)'
+repr(MovieBox("T2", [Movie("T", ["A", "B"], 123)])) == 'MovieBox("T2", [Movie("T", ["A", "B"], 123)])'
+```
 
 The data structures should also handle invalid instantiations. Raise a `Warning` when an empty title or an empty list of actors is provided or when the duration is not at least one minute. In addition to an empty title, a `MovieBox` should also raise a `Warning` if the provided `Movie` list is empty or an entry is not a (subtype of) `Movie`.
 
@@ -19,7 +21,7 @@ Once the two data structures have been created, implement the `Library` that can
     b = Movie("The Godfather", ["Brando", "Pacino"], 175)
     c = Movie("12 Angry Men", ["Fonda", "Cobb"], 96)
     d = MovieBox("Top Movies", [b, c])
-
+    
     l = Library()
     l.add_movie(a)
     l.add_movie(d)
