@@ -778,3 +778,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,macos,windows,linux,git,python,jupyternotebooks,go,ruby,node,django,gitbook,java,assembler,pycharm+all,jetbrains+all,venv,vim,emacs
+*.ipynb
