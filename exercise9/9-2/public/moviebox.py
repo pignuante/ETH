@@ -37,6 +37,15 @@ class MovieBox:
         return self.__title
 
     def get_actors(self) -> list:
+        #########################################
+        ### actor 는 한 영화에 여러명일수도 있으니 ###
+        ### 반복문을 사용해서 list 에 넣는다      ###
+        ### append 함수와 extend 함수의 차이는   ###
+        ###     l = []                        ###
+        ###     l.append([1,2,]) -> [[1,2]]   ###
+        ###     l.extend([1,2,]) -> [1,2,]    ###
+        ### 의 차이                            ###
+        #########################################
         actors = []
         for movie in self.get_movies():
             actors.extend(movie.get_actors())

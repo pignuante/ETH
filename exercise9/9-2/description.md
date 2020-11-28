@@ -17,16 +17,18 @@ The important idea of a composite is that, while it groups together several elem
 
 Once the two data structures have been created, implement the `Library` that can be used as a central place to manage a `Movie` collection. Consider the following example:
 
-    a = Movie("The Shawshank Redemption", ["Robbins", "Freeman"], 142)
-    b = Movie("The Godfather", ["Brando", "Pacino"], 175)
-    c = Movie("12 Angry Men", ["Fonda", "Cobb"], 96)
-    d = MovieBox("Top Movies", [b, c])
-    
-    l = Library()
-    l.add_movie(a)
-    l.add_movie(d)
-    print(l.get_total_duration()) # prints 413
-    print(l.get_movies()) # returns the three movies c, b, a (sorted and omitting the box itself)
+```python
+a = Movie("The Shawshank Redemption", ["Robbins", "Freeman"], 142)
+b = Movie("The Godfather", ["Brando", "Pacino"], 175)
+c = Movie("12 Angry Men", ["Fonda", "Cobb"], 96)
+d = MovieBox("Top Movies", [b, c])
+
+l = Library()
+l.add_movie(a)
+l.add_movie(d)
+print(l.get_total_duration()) # prints 413
+print(l.get_movies()) # returns the three movies c, b, a (sorted and omitting the box itself)
+```
 
 The library should provide two utility functions over all added `Movie` instances. `get_total_duration` should calculate the total duration of all movies in the library. As a result of the composition, the library itself does not need to know whether a `Movie` is being added or a `MovieBox`. Both have the same interface and can be used interchangeably to access actors or durations.
 
