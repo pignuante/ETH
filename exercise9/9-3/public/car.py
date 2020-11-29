@@ -6,10 +6,19 @@
 
 from abc import ABC, abstractmethod
 
-class Car:
 
-    def get_remaining_range(self):
+# ABC 라는 추상 class 상속
+class Car(ABC):
+    @abstractmethod # 추상 함수라고 명시적으로 표시
+    def get_remaining_range(self) -> float:
+        """
+        returns the remaining distance in kilometers (float)
+        """
         pass
 
-    def drive(self, dist):
+    @abstractmethod
+    def drive(self, dist: float):
+        """
+         drive can be used to drive the car for `dist` kilometers
+        """
         pass

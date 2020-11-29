@@ -7,7 +7,7 @@
 from public.movie import Movie
 
 
-class MovieBox:
+class MovieBox(Movie):
     def __init__(self, title: str, movies: list):
         assert isinstance(title, str)
         assert len(title) > 0

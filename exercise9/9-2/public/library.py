@@ -8,7 +8,7 @@ from public.movie import Movie
 from public.moviebox import MovieBox
 
 
-class Library:
+class Library(Movie):
     def __init__(self):
         self.__movies = []
         self.__movieBoxes = []
@@ -40,6 +40,12 @@ class Library:
             # 그 외의 경우는 에러
             # 기분상 raise warning 안하면 감점일 기분
             assert isinstance(movie, Movie)
+
+    def get_actors(self):
+        actors = []
+        for movie in self.get_movies():
+            actors.extend(movie.get_actors())
+        return sorted(set(actors))
 
     def get_movies(self):
         """
