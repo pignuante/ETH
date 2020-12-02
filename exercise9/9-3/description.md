@@ -6,11 +6,13 @@ The root of the hierarchy is the *abstract base class* `Car`. The abstraction is
 
 `CombustionCar`s are initiated with the `gas_capacity` in liters and `gas_per_100km` that describes the fuel consumption. The car can be refueled using `fuel`, which adds `f` liters of fuel to the gas tank. The method should raise a `Warning`, if the gas tank gets overfilled. A call to `get_gas_tank_status` returns the current gas tank capacity `c` and the maximum capacity `c_max` as a tuple `(c, c_max)`. It must always be that 0 <= c <= c_max. To make a `CombustionCar` usable, the two abstract methods `get_remaining_range` and `drive` need to be implemented. On use, `drive` should remove the correct amount of gas from the gas tank and it should raise a `Warning` if the gas tank is fully depleted through driving. Please consider the following example that illustrates a car usage:
 
-    c = CombustionCar(40.0, 8.0)
-    c.get_remaining_range() # 500
-    c.drive(25.0)
-    c.get_gas_tank_status() # (38.0, 40.0)
-    c.drive(1000.0) # fuel is depleted, Warning raised
+```python
+c = CombustionCar(40.0, 8.0)
+c.get_remaining_range() # 500
+c.drive(25.0)
+c.get_gas_tank_status() # (38.0, 40.0)
+c.drive(1000.0) # fuel is depleted, Warning raised
+```
 
 `ElectricCar`s are initiated with a `battery_size` in kilo-watt hours and the range of a fully charged battery in kilometers. The battery can be recharged with `kwh` kilo-watt hours by calling `charge`. Like for `CombustionCar`, over-charging should raise a `Warning`. Also `get_battery_status` is very similar to the `CombustionCar` equivalent and should return the current and the maximum capacity in a tuple `(c, c_max)`. `drive` and `get_remaining_range` need to be implemented as well and should affect/be affected by the battery charge level.
 

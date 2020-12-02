@@ -8,8 +8,9 @@ from abc import ABC, abstractmethod
 
 
 # ABC 라는 추상 class 상속
+# ABC 라는 추상 class 상속
 class Car(ABC):
-    @abstractmethod # 추상 함수라고 명시적으로 표시
+    @abstractmethod  # 추상 함수라고 명시적으로 표시
     def get_remaining_range(self) -> float:
         """
         returns the remaining distance in kilometers (float)
