@@ -9,56 +9,51 @@ from public.movie import Movie
 
 class MovieBox(Movie):
     def __init__(self, title: str, movies: list):
-        assert isinstance(title, str)
-        assert len(title) > 0
-        assert isinstance(movies, list)
+        if isinstance(title, str) is False:
+            pass
+        if isinstance(movies, list) is False:
+            pass
         for movie in movies:
-            assert isinstance(movie, Movie)
-
+            if isinstance(movie, Movie) is False:
+                pass
         self.__title = title
         self.__movies = movies
 
-    def __repr__(self) -> str:
-        name = f'MovieBox("{self.get_title()}", {self.get_movies()})'.replace(
-            "\'", "\"").strip()
-        return name
+    def __repr__(self):
+        movies = str([x for x in self.get_movies()])
+        rep = f'MovieBox("{self.__title}", {movies})'.replace("\'", "\"")
+        return rep
 
-    def __key(self) -> tuple:
-        return (self.get_title(), *self.get_movies())
+    def __keys(self) -> tuple:
+        keys_of_movies = [movie.__hash__() for movie in self.__movies]
+        return self.get_title, *keys_of_movies
 
     def __hash__(self) -> int:
-        return hash(self.__key())
-
-    def __eq__(self, other: Movie) -> bool:
-        assert isinstance(other, MovieBox)
-        return self.__hash__() == other.__hash__()
+        return hash(self.__keys())
 
     def get_title(self) -> str:
         return self.__title
 
     def get_actors(self) -> list:
-        #########################################
-        ### actor 는 한 영화에 여러명일수도 있으니 ###
-        ### 반복문을 사용해서 list 에 넣는다      ###
-        ### append 함수와 extend 함수의 차이는   ###
-        ###     l = []                        ###
-        ###     l.append([1,2,]) -> [[1,2]]   ###
-        ###     l.extend([1,2,]) -> [1,2,]    ###
-        ### 의 차이                            ###
-        #########################################
+        """
+        The same is true for the list of actors.
+        The list of actors for a MovieBox is the combination of all lists of every contained Movie.
+        Make sure that, for MovieBox, this list gets sorted alphabetically
+        and that it does not contain duplicates.
+        """
         actors = []
         for movie in self.get_movies():
             actors.extend(movie.get_actors())
-        return sorted(set(actors))
+        actors = sorted(set(actors))
+        return actors
 
     def get_duration(self) -> int:
-        sum_of_duration = 0
+        duration = 0
         for movie in self.get_movies():
-            sum_of_duration += movie.get_duration()
-
-        return sum_of_duration
+            duration += movie.get_duration()
+        return duration
 
     def get_movies(self) -> list:
         return self.__movies.copy()
 
-    # also implement the required special functions
+    # also, implement the required special functions

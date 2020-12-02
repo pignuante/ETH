@@ -3,9 +3,9 @@
 # The purpose of this file is illustrating the class usages. This script
 # is irrelevant for the grading and you can freely change its contents.
 
+from public.library import Library
 from public.movie import Movie
 from public.moviebox import MovieBox
-from public.library import Library
 
 a = Movie("The Shawshank Redemption", ["Robbins", "Freeman"], 142)
 b = Movie("The Godfather", ["Brando", "Pacino"], 175)
